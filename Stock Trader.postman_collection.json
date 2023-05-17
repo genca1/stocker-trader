@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "e7d29d6e-0c58-4cd5-b5ef-363f88ba019c",
+		"name": "Stock Trader",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullname\": \"deniz\",\r\n    \"username\": \"deniz\",\r\n    \"email\": \"deniz@deniz.com\",\r\n    \"balance\": \"300\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/users/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Market",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/markets/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"markets",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Portfolio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullname\": \"deniz\",\r\n    \"ownerId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/portfolios/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"portfolios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/users/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Portfolios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/portfolios/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"portfolios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Stocks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/stocks/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"stocks",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sell Stocks",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"symbol\": \"AMD\",\r\n    \"count\": 3,\r\n    \"email\": \"ahmet@ahmet.com\",\r\n    \"portfolio\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/stocks/sell",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"stocks",
+						"sell"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buy Stocks",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"symbol\": \"AMD\",\r\n    \"count\": 3,\r\n    \"email\": \"ahmet@ahmet.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/stocks/buy",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"stocks",
+						"buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullname\": \"Wallmart\",\r\n    \"symbol\": \"WMT\",\r\n    \"price\": 123.20,\r\n    \"share\": 3000,\r\n    \"portfolioId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/stocks/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"stocks",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
