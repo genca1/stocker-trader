@@ -127,8 +127,14 @@ exports.buy = async (req, res) => {
   const count = req.body.count;
   const email = req.body.email;
   var whoSell = await User.findOne({where: {email: email}});
+  if(whoSell.isRegistered == false) {
+    res.status(500).send({message: "User who is not registered can't buy or sell stock."});
+  }
   var boughtStock = await Market.findOne({ where: { symbol: symbol }
-}).then(function (boughtStock) { 
+}).then(function (boughtStock) {
+  if(boughtStock.isRegistered == false) {
+    res.status(500).send({message: "Stock that is not registered can't be bought or sold."});
+  }
   let balance = parseFloat(whoSell.balance).toFixed(2);
   let price = (count * parseFloat(boughtStock.price).toFixed(2));
   if (boughtStock.share > count && balance > price) {
@@ -154,8 +160,15 @@ exports.sell = async (req, res) => {
   const email = req.body.email;
   const portfolio = req.body.portfolio;
   let whoSell = await User.findOne({ where: {email: email}});
+  console.log("registerrrr???" + whoSell.isRegistered)
+  if(whoSell.isRegistered == false) {
+    res.status(500).send({message: "User who is not registered can't buy or sell stock."});
+  }
   soldStock = await Stock.findOne({ where: { symbol: symbol, portfolioId: portfolio }
   }).then(function (soldStock) { 
+    if(soldStock.isRegistered == false) {
+      res.status(500).send({message: "Stock that is not registered can't be bought or sold."});
+    }
     if(soldStock.share > count) {
       let newShare = parseInt(soldStock.share) - parseInt(count);
       Stock.update({ share : newShare }, { where: { symbol: soldStock.symbol, portfolioId: portfolio }});
