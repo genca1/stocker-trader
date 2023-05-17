@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       fullname: DataTypes.STRING,
       symbol: DataTypes.STRING,
       share: DataTypes.INTEGER,
+      isRegistered: { type: DataTypes.BOOLEAN, defaultValue: false },
       price: DataTypes.DECIMAL(10,2),
       portfolioId: {
         type: DataTypes.INTEGER,

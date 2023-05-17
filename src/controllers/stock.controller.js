@@ -31,6 +31,22 @@ exports.create = (req, res) => {
     });
 };
 
+exports.register = (req, res) => {
+  const id = req.params.id;
+  Stock.update({isRegistered: true}, {
+    where: { id: id }
+  }).then(data => {
+      res.send("Stock registered");
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while registering the stock."
+      });
+    });
+};
+
+
 exports.findAll = (req, res) => {
   const title = req.query.title;
   var condition = title ? { title: { [Op.iLike]: `%${title}%` } } : null;

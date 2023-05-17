@@ -4,6 +4,8 @@ module.exports = app => {
     var router = require("express").Router();
   
     router.post("/", user.create);
+
+    router.post("/:id", user.register);
   
     router.get("/", user.findAll);
       
