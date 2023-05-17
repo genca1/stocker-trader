@@ -23,6 +23,7 @@ db.user = require("./user.js")(sequelize, Sequelize);
 db.portfolio = require("./portfolio.js")(sequelize, Sequelize);
 db.stock = require("./stock.js")(sequelize, Sequelize);
 db.market = require("./market.js")(sequelize, Sequelize);
+db.order = require("./order.js")(sequelize, Sequelize);
 
 
 

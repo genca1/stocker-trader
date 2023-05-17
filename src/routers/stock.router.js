@@ -15,9 +15,9 @@ module.exports = app => {
   
     router.delete("/:id", stock.delete);
 
-    router.post("/buy/", stock.buy);
+    router.post("/buy", stock.buy);
 
-    router.post("/sell/", stock.sell);
+    router.post("/sell", stock.sell);
     
     app.use("/api/stocks", router);
   };

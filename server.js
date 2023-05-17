@@ -41,6 +41,19 @@ const markets = [
   { fullname: 'Nike Inc',                        symbol: 'NKE', share: 10000, price: 116.48 },
   { fullname: 'Wells Fargo & Company',           symbol: 'WFC', share: 10000, price: 38.39  }]
 
+  const orders = [
+    { orderType: 'BUY',  stock:'AMD', amount:10, priceByShare:101.48, totalPrice: 1014.8, ownerId:1},
+    { orderType: 'BUY',  stock:'AMD', amount:10, priceByShare:101.48, totalPrice: 1014.8, ownerId:1},
+    { orderType: 'BUY',  stock:'XOM', amount:10, priceByShare:102.52, totalPrice: 102.52, ownerId:1},
+    { orderType: 'BUY',  stock:'XOM', amount:10, priceByShare:102.52, totalPrice: 1025.2, ownerId:1},
+    { orderType: 'BUY',  stock:'BAC', amount:10, priceByShare:27.36,  totalPrice: 273.6,  ownerId:1},
+    { orderType: 'BUY',  stock:'BAC', amount:10, priceByShare:27.36,  totalPrice: 273.6,  ownerId:1},
+    { orderType: 'BUY',  stock:'NKE', amount:10, priceByShare:116.48, totalPrice: 1164.8, ownerId:1},
+    { orderType: 'BUY',  stock:'NKE', amount:10, priceByShare:116.48, totalPrice: 1164.8, ownerId:1},
+    { orderType: 'BUY',  stock:'WFC', amount:10, priceByShare:10.48,  totalPrice: 104.8,  ownerId:1},
+    { orderType: 'SELL', stock:'WFC', amount:10, priceByShare:10.48,  totalPrice: 104.8,  ownerId:1},
+    { orderType: 'SELL', stock:'WFC', amount:10, priceByShare:10.48,  totalPrice: 104.8,  ownerId:1},
+    { orderType: 'SELL', stock:'WFC', amount:10, priceByShare:10.48,  totalPrice: 104.8,  ownerId:1}]  
 
 const db = require("./src/models");
 db.sequelize.sync()
@@ -56,13 +69,13 @@ db.sequelize.sync()
 async function seedDatabase() {
   try {
       await db.sequelize.authenticate();
-
       await db.sequelize.sync({ force: true });
 
       await db.user.bulkCreate(users);
       await db.portfolio.bulkCreate(portfolios);
       await db.stock.bulkCreate(stocks);
       await db.market.bulkCreate(markets);
+      await db.order.bulkCreate(orders);
 
       console.log("Everything setup!");
   } catch(e) {

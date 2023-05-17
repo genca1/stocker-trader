@@ -2,10 +2,16 @@ const db = require("../models");
 const Stock = db.stock;
 const User = db.user;
 const Market = db.market;
+const Order = db.order;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-  if (!req.body.fullname) {
+  if (!req.body.fullname || 
+      !req.body.symbol   || 
+      !req.body.price    ||
+      !req.body.fullname ||
+      !req.body.share    ||
+      !req.body.portfolioId) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
@@ -127,12 +133,12 @@ exports.buy = async (req, res) => {
   const count = req.body.count;
   const email = req.body.email;
   var whoSell = await User.findOne({where: {email: email}});
-  if(whoSell.isRegistered == false) {
+  if(whoSell.isRegistered === false) {
     res.status(500).send({message: "User who is not registered can't buy or sell stock."});
   }
   var boughtStock = await Market.findOne({ where: { symbol: symbol }
 }).then(function (boughtStock) {
-  if(boughtStock.isRegistered == false) {
+  if(boughtStock.isRegistered === false) {
     res.status(500).send({message: "Stock that is not registered can't be bought or sold."});
   }
   let balance = parseFloat(whoSell.balance).toFixed(2);
@@ -160,13 +166,12 @@ exports.sell = async (req, res) => {
   const email = req.body.email;
   const portfolio = req.body.portfolio;
   let whoSell = await User.findOne({ where: {email: email}});
-  console.log("registerrrr???" + whoSell.isRegistered)
-  if(whoSell.isRegistered == false) {
+  if(whoSell.isRegistered === false) {
     res.status(500).send({message: "User who is not registered can't buy or sell stock."});
   }
   soldStock = await Stock.findOne({ where: { symbol: symbol, portfolioId: portfolio }
   }).then(function (soldStock) { 
-    if(soldStock.isRegistered == false) {
+    if(soldStock.isRegistered === false) {
       res.status(500).send({message: "Stock that is not registered can't be bought or sold."});
     }
     if(soldStock.share > count) {
