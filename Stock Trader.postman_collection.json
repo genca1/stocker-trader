@@ -6,13 +6,51 @@
 	},
 	"item": [
 		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/users/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/stocks/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"stocks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Create User",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"fullname\": \"deniz\",\r\n    \"username\": \"deniz\",\r\n    \"email\": \"deniz@deniz.com\",\r\n    \"balance\": \"300\",\r\n    \"password\": \"password\"\r\n}",
+					"raw": "{\r\n    \"fullname\": \"aytac\",\r\n    \"username\": \"aytac\",\r\n    \"email\": \"aytac@aytac.com\",\r\n    \"balance\": \"300\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -71,7 +109,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"fullname\": \"deniz\",\r\n    \"ownerId\": 1\r\n}",
+					"raw": "{\r\n    \"fullname\": \"aytac\",\r\n    \"ownerId\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -164,14 +202,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/api/stocks/sell",
+					"raw": "{{url}}/api/stocks/sell/",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
 						"stocks",
-						"sell"
+						"sell",
+						""
 					]
 				}
 			},

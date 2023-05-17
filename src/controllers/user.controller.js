@@ -38,8 +38,7 @@ exports.register = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while registering the user."
+        message: "Some error occurred while registering the user."
       });
     });
 };
@@ -54,8 +53,7 @@ exports.findAll = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving users."
+        message: "Some error occurred while retrieving users."
       });
     });
 };

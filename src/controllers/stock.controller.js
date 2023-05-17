@@ -46,8 +46,7 @@ exports.register = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while registering the stock."
+        message: "Some error occurred while registering the stock."
       });
     });
 };
@@ -63,8 +62,7 @@ exports.findAll = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving stocks."
+        message: "Some error occurred while retrieving stocks."
       });
     });
 };
@@ -172,7 +170,7 @@ exports.sell = async (req, res) => {
   soldStock = await Stock.findOne({ where: { symbol: symbol, portfolioId: portfolio }
   }).then(function (soldStock) { 
     if(soldStock.isRegistered === false) {
-      res.status(500).send({message: "Stock that is not registered can't be bought or sold."});
+      res.status(500).send({ message: "Stock that is not registered can't be bought or sold."});
     }
     if(soldStock.share > count) {
       let newShare = parseInt(soldStock.share) - parseInt(count);
@@ -186,8 +184,6 @@ exports.sell = async (req, res) => {
       )
     }})
     .catch(err => {
-      res.status(500).send({
-      message: "Couldn't sell the stock"
-    });
+      res.status(500).send({ message: "Couldn't sell the stock" });
   });
 };
