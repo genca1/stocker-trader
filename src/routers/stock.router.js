@@ -5,8 +5,6 @@ module.exports = app => {
   
     router.post("/", stock.create);
 
-    router.post("/:id", stock.register);
-  
     router.get("/", stock.findAll);
       
     router.get("/:id", stock.findOne);
@@ -18,6 +16,8 @@ module.exports = app => {
     router.post("/buy", stock.buy);
 
     router.post("/sell", stock.sell);
+
+    router.post("/:id", stock.register);
     
     app.use("/api/stocks", router);
   };
