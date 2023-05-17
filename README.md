@@ -1,2 +1,2 @@
 # stocker-trader
-Super Stock Trader
+Super Stock Trader Assignment
